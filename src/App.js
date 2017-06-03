@@ -1,19 +1,32 @@
 import React, {Component} from 'react';
 import './App.css';
 
+const list = [
+    {
+        title: 'React',
+        url: 'https://facebook.github.io/react/',
+        author: 'Jordan Walke',
+        num_comments: 3,
+        points: 4,
+        objectID: 0
+    }, {
+        title: 'Redux',
+        url: 'https://facebook.github.io/redux/',
+        author: 'Dan Abramov, Andrew Clark',
+        num_comments: 2,
+        points: 5,
+        objectID: 1
+    }
+];
+
 class App extends Component {
     render() {
-        const helloWorld = 'Welcome to React';
-        const user = {
-            name: 'André',
-            lastName: 'Ferreira'
-        };
-        const country = 'Brazil';
-
         return (
             <div className="App">
-                <h2>{helloWorld}, {user.name} {user.lastName}!</h2>
-                <h3>We are in {country}</h3>
+                { list
+                    .map(function (item) {
+                        return <div>{item.title}</div>
+                    })}
             </div>
         );
     }
