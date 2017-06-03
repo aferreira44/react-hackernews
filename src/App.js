@@ -3,12 +3,12 @@ import './App.css';
 
 class App extends Component {
     render() {
-        var helloWorld = 'Welcome to React';
-        var user = {
+        const helloWorld = 'Welcome to React';
+        const user = {
             name: 'André',
             lastName: 'Ferreira'
         };
-        var country = 'Brazil';
+        const country = 'Brazil';
 
         return (
             <div className="App">
