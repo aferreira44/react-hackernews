@@ -53,22 +53,21 @@ class App extends Component {
             .then(result => this.setSearchTopStories(result));
     }
 
-    componentDidMount(){
-        const { searchTerm } = this.state;
+    componentDidMount() {
+        const {searchTerm} = this.state;
         this.fetchSearchTopStories(searchTerm);
     }
 
     onDismiss(id) {
-        const isNotId = item => {
-            return item.objectID !== id
-        }
+        const isNotId = item => item.objectID !== id;
 
-        const updatedList = this
+        const updatedHits = this
             .state
-            .list
-            .filter(isNotId)
+            .result
+            .hits
+            .filter(isNotId);
 
-        this.setState({list: updatedList})
+        this.setState({result: {...this.state.result, hits: updatedHits}});
     }
 
     onSearchChange(event) {
@@ -78,7 +77,9 @@ class App extends Component {
     render() {
         const {author, title, searchTerm, result} = this.state;
 
-        if (!result) { return null; }
+        if (!result) {
+            return null;
+        }
 
         return (
             <div className="page">
