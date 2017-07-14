@@ -30,7 +30,8 @@ class App extends Component {
         this.state = {
             title,
             author,
-            result: null,
+            results: null,
+            searchKey: '',
             searchTerm: DEFAULT_QUERY
         }
 
