@@ -84,6 +84,7 @@ class App extends Component {
 
     componentDidMount() {
         const {searchTerm} = this.state;
+        this.setState({searchKey: searchTerm});
         this.fetchSearchTopStories(searchTerm, DEFAULT_PAGE);
     }
 
@@ -110,6 +111,7 @@ class App extends Component {
 
     onSearchSubmit(event) {
         const {searchTerm} = this.state;
+        this.setState({searchKey: searchTerm});
         this.fetchSearchTopStories(searchTerm, DEFAULT_PAGE);
         event.preventDefault();
     }
