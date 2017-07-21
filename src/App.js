@@ -93,7 +93,8 @@ class App extends Component {
     fetchSearchTopStories(searchTerm, page) {
         fetch(`${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${searchTerm}&${PARAM_PAGE}${page}&${PARAM_HPP}${DEFAULT_HPP}`)
             .then(response => response.json())
-            .then(result => this.setSearchTopStories(result));
+            .then(result => this.setSearchTopStories(result))
+            .catch(err => err);
     }
 
     componentDidMount() {
@@ -243,3 +244,9 @@ const largeColumn = {
 }
 
 export default App;
+
+export {
+    Button,
+    Search,
+    Table
+};
