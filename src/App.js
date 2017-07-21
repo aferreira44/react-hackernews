@@ -182,7 +182,7 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
     className: PropTypes.string,
     children: PropTypes.node.isRequired
 };
@@ -194,8 +194,8 @@ const Search = ({value, onChange, onSubmit, children}) => <form onSubmit={onSubm
 
 Search.propTypes = {
     value: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
+    onSubmit: PropTypes.func,
     children: PropTypes.node.isRequired
 };
 
@@ -229,7 +229,7 @@ Table.propTypes = {
             num_comments: PropTypes.number
         })
     ).isRequired,
-    onDismiss: PropTypes.func.isRequired
+    onDismiss: PropTypes.func
 };
 
 // Define style objects
