@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import './App.css';
 
 const DEFAULT_QUERY = 'redux';
@@ -171,14 +172,31 @@ const Header = ({title, author}) => <div>
 
 const Button = ({
     onClick,
-    className = '',
+    className,
     children
 }) => <button onClick={onClick} className={className} type="button">{children}</button>
+
+Button.defaultProps = {
+    className: ''
+};
+
+Button.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    className: PropTypes.string,
+    children: PropTypes.node.isRequired
+};
 
 const Search = ({value, onChange, onSubmit, children}) => <form onSubmit={onSubmit}>
     <input type="text" value={value} onChange={onChange}/>
     <button type="submit">{children}</button>
 </form>
+
+Search.propTypes = {
+    value: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    children: PropTypes.node.isRequired
+};
 
 const Table = ({list, onDismiss}) => <div className="table">
     {list.map(item => <div key={item.objectID} className="table-row">
@@ -200,6 +218,18 @@ const Table = ({list, onDismiss}) => <div className="table">
     </div>)
 }
 </div>
+
+Table.propTypes = {
+    list: PropTypes.arrayOf(
+        PropTypes.shape({
+            objectID: PropTypes.string.isRequired,
+            author: PropTypes.string,
+            url: PropTypes.string,
+            num_comments: PropTypes.number
+        })
+    ).isRequired,
+    onDismiss: PropTypes.func.isRequired
+};
 
 // Define style objects
 const smallColumn = {
